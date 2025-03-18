@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div>
+        <section id="about the teacher">
+            <img src="images/my_profile_photo.png" alt="My profile photo" class="profile-img">
+            <div class="section-content">
+                <h2>Danilo Irwing</h2>
+                <p>Graduado em Letras - Inglês pela Universidade Católica de Brasília, com certificado de proficiência pela Universidade de Cambridge (CPE), obtido em 2024, e mais de quatorze anos de experiência em sala de aula. Dentre eles três anos pela Casa Thomas Jefferson e oito pela Cooplem.</p>
+            </div>
+          </section>
+    </div>
+    <div class="title">
+         <h1>
+            As Aulas
+        </h1>
+    </div>
+    <div class="sections-container">
+        <section class="box">
+            <img alt="aulas" src="images/aulas.webp">
+            <h2>Pacote de Aulas</h2>
+            <p>São oito aulas por mensais ministradas duas vezes por semana com duração de 1h cada. Totalizando 48h por semestre.</p>
+        </section>
+
+        <section class="box">
+            <img alt="aulas" src="images/homework.webp">
+            <h2>Atividades</h2>
+            <p>O aluno receberá uma planilha com atividades a serem realizadas durante a semana. </p>
+        </section>
+
+        <section class="box">
+            <img alt="aulas" src="images/growth.webp">
+            <h2>Desenvolvimento</h2>
+            <p>Haverão avaliações periódicas para mansurar o desenvolvimento do aluno.</p>
+        </section>
+    </div>
+    <section class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="bg-primary text-white p-4 rounded w-75 text-center">
+            <h2 class="fw-bold">Entre em Contato</h2>
+            <form id="contactForm" class="d-flex flex-column align-items-center mt-3">
+                <div class="mb-3 w-50">
+                    <label for="name" class="form-label">Nome:</label>
+                    <input type="text" id="name" class="form-control" placeholder="Digite seu nome" required>
+                </div>
+                <div class="mb-3 w-50">
+                    <label for="email" class="form-label">E-mail:</label>
+                    <input type="email" id="email" class="form-control" placeholder="Digite seu e-mail" required>
+                </div>
+                <button type="submit" class="btn btn-light fw-bold">Enviar</button>
+            </form>
+        </div>
+    </section>
+    
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function(event) {
+          event.preventDefault(); 
+          
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+    
+          let formData = { name: name, email: email };
+    
+          fetch("https://script.google.com/macros/s/AKfycbzpEmAt_P-907gcyDa-g2iru4HaafQidlcCM33N6JoIG9qFlXkIa1xNuWAhLhgeAq5dEg/exec", {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData),
+          }).then(() => {
+              alert("Thank you! Your information has been submitted.");
+              document.getElementById("contactForm").reset();
+          }).catch(error => console.error("Error:", error));
+      });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
